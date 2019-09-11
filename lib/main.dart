@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:list_view/detail_list.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+  List<String> data = ['Chicken','Salmon','Beef','Pork','Avocado','Apple Cider Vinegar','Asparagus'];
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -16,31 +18,27 @@ class MyApp extends StatelessWidget {
         appBar: new AppBar(
           title: const Text('Bahan Makanan'),
         ),
-        body: ListView(
-          children: <Widget>[
-            ListTile(
-              title: Text('Chicken'),
-            ),
-            ListTile(
-              title: Text('Salmon'),
-            ),
-            ListTile(
-              title: Text('Beef'),
-            ),
-            ListTile(
-              title: Text('Pork'),
-            ),
-            ListTile(
-              title: Text('Avocado'),
-            )
-          ],
-        ),
         
-      )
-
-    
-    );
-    
+      body: ListView.builder(
+      itemCount: data.length,
+      itemBuilder: (context, index) {
+        return ListTile(
+            title: Text(data[index]),
+            // Ketika pengguna melakukan tap pada ListTile, pindah ke DetailScreen.
+            // Selain membuat DetailScreen, data juga dikirimkan
+            onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Detail_List(item: data[index]),
+                    ),
+                );
+            },
+        );
+      },
+      ),
+      ),   
+    );  
   }
 }
 
