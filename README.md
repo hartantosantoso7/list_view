@@ -6,5 +6,5 @@ A new Flutter project.
 
 ## screenshoot
 
-![alt text](list.PNG)
-![alt text](detaillist.PNG)
+![alt text](images/list.PNG)
+![alt text](images/detaillist.PNG)
